@@ -1,6 +1,6 @@
 import csv
 
-f = open('lol.csv', 'r')
+f = open('data.csv', 'r')
 b = []
 with f:
     reader = csv.reader(f)
