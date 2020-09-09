@@ -7,34 +7,26 @@ def bubbleSort(arr):
             if arr[j] > arr[j+1]: 
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 
-def insertionSort(arr): 
+def selectionSort(liste):
+    n = len(liste)
+    for i in range(n-1):
+        minSort = i
+        for j in range(i, n):
+            if(liste[minSort] > liste[j]):
+                minSort = j
+                tmp = liste[i]
+                liste[i] = liste[minSort]
+                liste[minSort] = tmp
+
+def insertionSort(liste):
+    for a in range(1,len(liste)):
+        
+        temp = liste[a]
+        b = a-1
+        
+        while(b>=0 and temp < liste[b]):
+            liste[b+1] = liste[b]
+            b -= 1
+        liste[b+1] = temp
+
   
-    for i in range(1, len(arr)): 
-  
-        key = arr[i] 
-
-        j = i-1
-        while j >=0 and key < arr[j] : 
-                arr[j+1] = arr[j] 
-                j -= 1
-        arr[j+1] = key 
-
-def partition(arr, low, high):
-    i = (low-1)         # index of smaller element
-    pivot = arr[high]     # pivot
- 
-    for j in range(low, high):
- 
-        # If current element is smaller than or
-        # equal to pivot
-        if arr[j] <= pivot:
- 
-            # increment index of smaller element
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
- 
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
-
-
-

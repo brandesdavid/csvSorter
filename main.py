@@ -1,10 +1,19 @@
 import csv
-from Algorithms import bubbleSort, insertionSort
+from Algorithms import *
 
-array = [' ']*100
+sortingAlgorithm = input("what sorting algorithm do you want to use? (bubbleSort, insertionSort, selectionSort): ")
+
+fileName = input("what is the file name? (csv): ")
+dataName = fileName + ".csv"
+
+size = int(input("how many numbers does your file have?: "))
+
+array = [' ']*size
 pointer = 0
 
-with open('data4.csv', 'r') as csv_file:
+
+
+with open(dataName, 'r') as csv_file:
     reader = csv.reader(csv_file)
     
     next(reader) # skips first line of csv
@@ -14,8 +23,13 @@ with open('data4.csv', 'r') as csv_file:
         pointer +=1
 
 
-insertionSort(array)
+if(sortingAlgorithm.upper == "BUBBLESORT"):
+  bubbleSort(array)
+elif(sortingAlgorithm.upper == "INSERTIONSORT"):
+  insertionSort(array)
+else: 
+  selectionSort(array)
 
 for x in array:
-    print(x)
+    print(x, end=" ")
             
